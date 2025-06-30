@@ -17,6 +17,8 @@ Código Otimizado: Implementação revisada para maior robustez e integração.
 
 Este "update" oferece uma experiência de usuário mais limpa e personalizável para a exibição do PING.
 
+Creditos pelo sistema principal : Rhypew - metin2hub.com
+
 [EN]
 
 Metin2 Client PING System Update
@@ -32,3 +34,5 @@ Visibility Control: Added functionality to show or hide the PING display using t
 Optimized Code: Revised implementation for increased robustness and seamless integration.
 
 This update offers a cleaner and more customizable user experience for PING display.
+
+Credits for the main system: Rhypew - metin2hub.com
