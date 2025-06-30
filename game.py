@@ -1,10 +1,10 @@
-Guia de Instalação game.py - Tradução PT-BR
+Guia de Instalação game.py
 Este guia descreve as modificações necessárias no seu arquivo game.py para integrar o sistema de PING.
 
 1. Inicialização do pingLine e Status isShowPing
 Procure a seguinte linha no método __init__ da classe GameWindow:
 
-#Suchen in class GameWindow(ui.ScriptWindow):
+#Pesquisar em class GameWindow(ui.ScriptWindow):
 self.__ProcessPreservedServerCommand()
 
 Adicione o seguinte código diretamente abaixo. Este código inicializa self.pingLine e uma nova variável self.isShowPing, que armazena o status de visibilidade atual do PING. Observe que a linha SetPosition foi removida aqui, pois a posição será definida dinamicamente.
@@ -21,7 +21,7 @@ Adicione o seguinte código diretamente abaixo. Este código inicializa self.pin
 2. Limpeza do pingLine ao Fechar
 Procure a seguinte linha no método Close da classe GameWindow:
 
-#Suchen in def Close(self):
+#Pesquisar em def Close(self):
 			self.interface=None
 
 Adicione o seguinte código diretamente abaixo. Isso garante que o objeto pingLine seja liberado corretamente quando a janela for fechada.
@@ -77,7 +77,7 @@ B) Chame __UpdatePingPosition quando o jogo for aberto:
 
 Procure na classe GameWindow, no método Open, a linha:
 
-#Suchen in def Open(self):
+#Pesquisar em def Open(self):
 		net.SendEnterGamePacket()
 
 Adicione o seguinte código diretamente abaixo. Isso garante que o PING seja posicionado corretamente após todos os elementos da UI terem sido carregados.
@@ -93,10 +93,10 @@ Adicione o seguinte código diretamente abaixo. Isso garante que o PING seja pos
 4. Atualização do Método __BuildDebugInfo
 Procure na classe GameWindow, no método __BuildDebugInfo, o bloco:
 
-#Suchen in def __BuildDebugInfo(self):
+#Pesquisar em def __BuildDebugInfo(self):
 		self.ViewDistance.SetPosition(0, 0)
 		
-#Darunter hinzufügen
+#Adicione abaixo
 		if app.ENABLE_PINGTIME:
 			self.pingLine.SetWindowHorizontalAlignCenter()
 			self.pingLine.SetHorizontalAlignCenter()
@@ -140,7 +140,7 @@ B) Vincule a tecla 'P' à função TogglePing:
 
 Procure na classe GameWindow, no método __BuildKeyDict, a linha onde você já tinha adicionado o atalho para a tecla 'P':
 
-#Suchen in def __BuildKeyDict(self):
+#Pesquisar em def __BuildKeyDict(self):
 		onPressKeyDict[app.DIK_P]			= lambda : self.TogglePing() # Esta é a linha alvo
 
 Certifique-se de que esta linha se parece com o seguinte para chamar a função TogglePing:
@@ -150,10 +150,10 @@ Certifique-se de que esta linha se parece com o seguinte para chamar a função 
 6. Atualização do Método OnUpdate
 Procure na classe GameWindow, no método OnUpdate, o bloco:
 
-#Suchen in def OnUpdate(self):
+#Pesquisar em def OnUpdate(self):
 		self.interface.BUILD_OnUpdate()
 
-#Darunter hinzufügen
+#Adicione abaixo
 		if app.ENABLE_PINGTIME: # Esta linha será alterada
 			nPing = app.GetPingTime()
 			self.pingLine.SetText("PING: %s" % (nPing))
